@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
-  // Disable static optimization for dynamic routes
-  trailingSlash: false,
+  // Empty config works best for Render/Vercel deployment
 };
 
 export default nextConfig;
