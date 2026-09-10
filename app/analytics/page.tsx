@@ -56,76 +56,76 @@ export default function Analytics() {
   const avgDealSize = (salesData.reduce((sum, d) => sum + d.revenue, 0) / totalConverted / 1000).toFixed(0);
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Analytics & Reports</h1>
-        <p className="text-gray-600 mt-1">Deep insights on sales, operations, and performance</p>
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Analytics & Reports</h1>
+        <p className="text-gray-600 mt-1 text-sm md:text-base">Deep insights on sales, operations, and performance</p>
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <Users className="w-5 h-5 text-blue-600" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <div className="flex items-center gap-2 md:gap-3 mb-2">
+            <div className="p-1.5 md:p-2 bg-blue-100 rounded-lg">
+              <Users className="w-4 h-4 md:w-5 md:h-5 text-blue-600" />
             </div>
-            <span className="text-gray-600 text-sm">Total Leads (6M)</span>
+            <span className="text-gray-600 text-xs md:text-sm">Total Leads (6M)</span>
           </div>
-          <p className="text-3xl font-bold text-gray-900">{totalLeads}</p>
-          <div className="flex items-center gap-1 mt-2 text-sm text-green-600">
-            <TrendingUp className="w-4 h-4" />
+          <p className="text-2xl md:text-3xl font-bold text-gray-900">{totalLeads}</p>
+          <div className="flex items-center gap-1 mt-2 text-xs md:text-sm text-green-600">
+            <TrendingUp className="w-3 h-3 md:w-4 md:h-4" />
             <span>+12% from last period</span>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-green-100 rounded-lg">
-              <Target className="w-5 h-5 text-green-600" />
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <div className="flex items-center gap-2 md:gap-3 mb-2">
+            <div className="p-1.5 md:p-2 bg-green-100 rounded-lg">
+              <Target className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
             </div>
-            <span className="text-gray-600 text-sm">Conversion Rate</span>
+            <span className="text-gray-600 text-xs md:text-sm">Conversion Rate</span>
           </div>
-          <p className="text-3xl font-bold text-gray-900">{conversionRate}%</p>
-          <div className="flex items-center gap-1 mt-2 text-sm text-green-600">
-            <TrendingUp className="w-4 h-4" />
+          <p className="text-2xl md:text-3xl font-bold text-gray-900">{conversionRate}%</p>
+          <div className="flex items-center gap-1 mt-2 text-xs md:text-sm text-green-600">
+            <TrendingUp className="w-3 h-3 md:w-4 md:h-4" />
             <span>+3% from last period</span>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-purple-100 rounded-lg">
-              <DollarSign className="w-5 h-5 text-purple-600" />
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <div className="flex items-center gap-2 md:gap-3 mb-2">
+            <div className="p-1.5 md:p-2 bg-purple-100 rounded-lg">
+              <DollarSign className="w-4 h-4 md:w-5 md:h-5 text-purple-600" />
             </div>
-            <span className="text-gray-600 text-sm">Avg. Deal Size</span>
+            <span className="text-gray-600 text-xs md:text-sm">Avg. Deal Size</span>
           </div>
-          <p className="text-3xl font-bold text-gray-900">₹{avgDealSize}K</p>
-          <div className="flex items-center gap-1 mt-2 text-sm text-red-600">
-            <TrendingDown className="w-4 h-4" />
+          <p className="text-2xl md:text-3xl font-bold text-gray-900">₹{avgDealSize}K</p>
+          <div className="flex items-center gap-1 mt-2 text-xs md:text-sm text-red-600">
+            <TrendingDown className="w-3 h-3 md:w-4 md:h-4" />
             <span>-5% from last period</span>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-orange-100 rounded-lg">
-              <Briefcase className="w-5 h-5 text-orange-600" />
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <div className="flex items-center gap-2 md:gap-3 mb-2">
+            <div className="p-1.5 md:p-2 bg-orange-100 rounded-lg">
+              <Briefcase className="w-4 h-4 md:w-5 md:h-5 text-orange-600" />
             </div>
-            <span className="text-gray-600 text-sm">Active Projects</span>
+            <span className="text-gray-600 text-xs md:text-sm">Active Projects</span>
           </div>
-          <p className="text-3xl font-bold text-gray-900">18</p>
-          <div className="flex items-center gap-1 mt-2 text-sm text-green-600">
-            <TrendingUp className="w-4 h-4" />
+          <p className="text-2xl md:text-3xl font-bold text-gray-900">18</p>
+          <div className="flex items-center gap-1 mt-2 text-xs md:text-sm text-green-600">
+            <TrendingUp className="w-3 h-3 md:w-4 md:h-4" />
             <span>+2 this month</span>
           </div>
         </div>
       </div>
 
       {/* Sales & Revenue Trend */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Revenue Trend</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">Revenue Trend</h2>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={salesData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -138,8 +138,8 @@ export default function Analytics() {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Lead Source Distribution</h2>
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">Lead Source Distribution</h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -163,9 +163,9 @@ export default function Analytics() {
       </div>
 
       {/* Team Productivity */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Team Productivity (This Month)</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">Team Productivity (This Month)</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={teamProductivity}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -178,8 +178,8 @@ export default function Analytics() {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Content Performance by Platform</h2>
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">Content Performance by Platform</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={contentPerformance}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -195,8 +195,8 @@ export default function Analytics() {
       </div>
 
       {/* Conversion Funnel */}
-      <div className="bg-white rounded-xl shadow-sm p-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Sales Conversion Funnel</h2>
+      <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+        <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">Sales Conversion Funnel</h2>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={salesData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />

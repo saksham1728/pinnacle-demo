@@ -51,50 +51,50 @@ export default function Calendar() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Content Calendar</h1>
-        <p className="text-gray-600 mt-1">Visual calendar with all scheduled content</p>
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Content Calendar</h1>
+        <p className="text-gray-600 mt-1 text-sm md:text-base">Visual calendar with all scheduled content</p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm">Total Scheduled</p>
-          <p className="text-2xl font-bold text-green-600">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm">Total Scheduled</p>
+          <p className="text-xl md:text-2xl font-bold text-green-600">
             {contentSchedule.filter((c) => c.status === "scheduled").length}
           </p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm">Published</p>
-          <p className="text-2xl font-bold text-gray-900">
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm">Published</p>
+          <p className="text-xl md:text-2xl font-bold text-gray-900">
             {contentSchedule.filter((c) => c.status === "published").length}
           </p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm">Drafts</p>
-          <p className="text-2xl font-bold text-yellow-600">
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm">Drafts</p>
+          <p className="text-xl md:text-2xl font-bold text-yellow-600">
             {contentSchedule.filter((c) => c.status === "draft").length}
           </p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm">This Week</p>
-          <p className="text-2xl font-bold text-indigo-600">5</p>
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm">This Week</p>
+          <p className="text-xl md:text-2xl font-bold text-indigo-600">5</p>
         </div>
       </div>
 
       {/* Calendar Controls */}
-      <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">
+      <div className="bg-white rounded-xl shadow-sm p-4 md:p-6 mb-4 md:mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
             {monthNames[currentMonth]} {currentYear}
           </h2>
           <div className="flex gap-2">
             <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
             </button>
-            <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700">
+            <button className="px-3 md:px-4 py-2 bg-indigo-600 text-white rounded-lg text-xs md:text-sm font-medium hover:bg-indigo-700">
               Today
             </button>
             <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">

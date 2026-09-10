@@ -48,7 +48,7 @@ export default function CRM() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       {/* Add Lead Modal */}
       <AddLeadModal 
         isOpen={isModalOpen} 
@@ -57,36 +57,36 @@ export default function CRM() {
       />
 
       {/* Header */}
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-6 md:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Sales Pipeline</h1>
-          <p className="text-gray-600 mt-1">Visual Kanban board for lead management</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Sales Pipeline</h1>
+          <p className="text-gray-600 mt-1 text-sm md:text-base">Visual Kanban board for lead management</p>
         </div>
         <button 
           onClick={() => setIsModalOpen(true)}
-          className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl"
+          className="px-4 md:px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl text-sm md:text-base whitespace-nowrap"
         >
           + Add New Lead
         </button>
       </div>
 
       {/* Pipeline Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm">Total Leads</p>
-          <p className="text-2xl font-bold text-gray-900">{leadData.length}</p>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-4 md:mb-6">
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm">Total Leads</p>
+          <p className="text-xl md:text-2xl font-bold text-gray-900">{leadData.length}</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm">Pipeline Value</p>
-          <p className="text-2xl font-bold text-green-600">₹{(leadData.reduce((sum, l) => sum + l.value, 0) / 100000).toFixed(1)}L</p>
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm">Pipeline Value</p>
+          <p className="text-xl md:text-2xl font-bold text-green-600">₹{(leadData.reduce((sum, l) => sum + l.value, 0) / 100000).toFixed(1)}L</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm">High Priority</p>
-          <p className="text-2xl font-bold text-red-600">{leadData.filter(l => l.priority === "high").length}</p>
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm">High Priority</p>
+          <p className="text-xl md:text-2xl font-bold text-red-600">{leadData.filter(l => l.priority === "high").length}</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm">Conversion Rate</p>
-          <p className="text-2xl font-bold text-indigo-600">24%</p>
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm">Conversion Rate</p>
+          <p className="text-xl md:text-2xl font-bold text-indigo-600">24%</p>
         </div>
       </div>
 
@@ -98,7 +98,7 @@ export default function CRM() {
             const stageValue = stageLeads.reduce((sum, lead) => sum + lead.value, 0);
 
             return (
-              <div key={stage.id} className="flex-shrink-0 w-80">
+              <div key={stage.id} className="flex-shrink-0 w-72 md:w-80">
                 {/* Column Header */}
                 <div className={`${stage.color} text-white rounded-t-lg p-4`}>
                   <div className="flex items-center justify-between">

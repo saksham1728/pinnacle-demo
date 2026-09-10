@@ -33,57 +33,57 @@ export default function Finance() {
   const totalOutstanding = invoices.reduce((sum, inv) => sum + inv.balance, 0);
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Finance & Profitability</h1>
-        <p className="text-gray-600 mt-1">Track invoices, payments, and project profitability</p>
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Finance & Profitability</h1>
+        <p className="text-gray-600 mt-1 text-sm md:text-base">Track invoices, payments, and project profitability</p>
       </div>
 
       {/* Financial Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg p-6 text-white">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
+        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg p-4 md:p-6 text-white">
           <div className="flex items-center gap-2 mb-2">
-            <DollarSign className="w-5 h-5" />
-            <span className="text-sm opacity-90">Total Revenue</span>
+            <DollarSign className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="text-xs md:text-sm opacity-90">Total Revenue</span>
           </div>
-          <p className="text-3xl font-bold">₹{(totalRevenue / 100000).toFixed(1)}L</p>
-          <p className="text-sm opacity-75 mt-1">This quarter</p>
+          <p className="text-2xl md:text-3xl font-bold">₹{(totalRevenue / 100000).toFixed(1)}L</p>
+          <p className="text-xs md:text-sm opacity-75 mt-1">This quarter</p>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-lg p-6 text-white">
+        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-lg p-4 md:p-6 text-white">
           <div className="flex items-center gap-2 mb-2">
-            <CheckCircle className="w-5 h-5" />
-            <span className="text-sm opacity-90">Collected</span>
+            <CheckCircle className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="text-xs md:text-sm opacity-90">Collected</span>
           </div>
-          <p className="text-3xl font-bold">₹{(totalReceived / 100000).toFixed(1)}L</p>
-          <p className="text-sm opacity-75 mt-1">
+          <p className="text-2xl md:text-3xl font-bold">₹{(totalReceived / 100000).toFixed(1)}L</p>
+          <p className="text-xs md:text-sm opacity-75 mt-1">
             {((totalReceived / totalRevenue) * 100).toFixed(0)}% collection rate
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-xl shadow-lg p-6 text-white">
+        <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-xl shadow-lg p-4 md:p-6 text-white">
           <div className="flex items-center gap-2 mb-2">
-            <Clock className="w-5 h-5" />
-            <span className="text-sm opacity-90">Outstanding</span>
+            <Clock className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="text-xs md:text-sm opacity-90">Outstanding</span>
           </div>
-          <p className="text-3xl font-bold">₹{(totalOutstanding / 100000).toFixed(1)}L</p>
-          <p className="text-sm opacity-75 mt-1">Pending collection</p>
+          <p className="text-2xl md:text-3xl font-bold">₹{(totalOutstanding / 100000).toFixed(1)}L</p>
+          <p className="text-xs md:text-sm opacity-75 mt-1">Pending collection</p>
         </div>
 
-        <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl shadow-lg p-6 text-white">
+        <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl shadow-lg p-4 md:p-6 text-white">
           <div className="flex items-center gap-2 mb-2">
-            <TrendingUp className="w-5 h-5" />
-            <span className="text-sm opacity-90">Avg. Profit Margin</span>
+            <TrendingUp className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="text-xs md:text-sm opacity-90">Avg. Profit Margin</span>
           </div>
-          <p className="text-3xl font-bold">32%</p>
-          <p className="text-sm opacity-75 mt-1">Across all projects</p>
+          <p className="text-2xl md:text-3xl font-bold">32%</p>
+          <p className="text-xs md:text-sm opacity-75 mt-1">Across all projects</p>
         </div>
       </div>
 
       {/* Profitability Chart */}
-      <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Client-wise Profitability</h2>
+      <div className="bg-white rounded-xl shadow-sm p-4 md:p-6 mb-6 md:mb-8">
+        <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">Client-wise Profitability</h2>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={profitabilityData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -98,26 +98,27 @@ export default function Finance() {
       </div>
 
       {/* Invoices List */}
-      <div className="bg-white rounded-xl shadow-sm p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-gray-900">Recent Invoices</h2>
-          <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors">
+      <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <h2 className="text-lg md:text-xl font-bold text-gray-900">Recent Invoices</h2>
+          <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors whitespace-nowrap">
             + New Invoice
           </button>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b">
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Invoice ID</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Client</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Amount</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Received</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Balance</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Due Date</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Status</th>
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Actions</th>
+        <div className="overflow-x-auto -mx-4 md:mx-0">
+          <div className="inline-block min-w-full align-middle">
+            <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="text-left py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Invoice ID</th>
+                <th className="text-left py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Client</th>
+                <th className="text-left py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Amount</th>
+                <th className="text-left py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Received</th>
+                <th className="text-left py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Balance</th>
+                <th className="text-left py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Due Date</th>
+                <th className="text-left py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Status</th>
+                <th className="text-left py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -152,13 +153,13 @@ export default function Finance() {
                       </span>
                     </td>
                     <td className="py-4 px-4">
-                      <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${config.bg} ${config.text}`}>
+                      <span className={`inline-flex items-center gap-1 px-2 md:px-3 py-1 rounded-full text-xs font-medium ${config.bg} ${config.text} whitespace-nowrap`}>
                         {config.icon}
                         {invoice.status.toUpperCase()}
                       </span>
                     </td>
                     <td className="py-4 px-4">
-                      <button className="text-indigo-600 text-sm font-medium hover:text-indigo-700">
+                      <button className="text-indigo-600 text-xs md:text-sm font-medium hover:text-indigo-700 whitespace-nowrap">
                         View
                       </button>
                     </td>
@@ -167,40 +168,42 @@ export default function Finance() {
               })}
             </tbody>
           </table>
+          </div>
         </div>
       </div>
 
       {/* Profitability Table */}
-      <div className="bg-white rounded-xl shadow-sm p-6 mt-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-6">Project Profitability Analysis</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b">
-                <th className="text-left py-3 px-4 text-sm font-semibold text-gray-700">Client</th>
-                <th className="text-right py-3 px-4 text-sm font-semibold text-gray-700">Revenue</th>
-                <th className="text-right py-3 px-4 text-sm font-semibold text-gray-700">Cost</th>
-                <th className="text-right py-3 px-4 text-sm font-semibold text-gray-700">Profit</th>
-                <th className="text-right py-3 px-4 text-sm font-semibold text-gray-700">Margin</th>
-              </tr>
-            </thead>
+      <div className="bg-white rounded-xl shadow-sm p-4 md:p-6 mt-6 md:mt-8">
+        <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-6">Project Profitability Analysis</h2>
+        <div className="overflow-x-auto -mx-4 md:mx-0">
+          <div className="inline-block min-w-full align-middle">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="text-left py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Client</th>
+                  <th className="text-right py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Revenue</th>
+                  <th className="text-right py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Cost</th>
+                  <th className="text-right py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Profit</th>
+                  <th className="text-right py-3 px-4 text-xs md:text-sm font-semibold text-gray-700 whitespace-nowrap">Margin</th>
+                </tr>
+              </thead>
             <tbody>
               {profitabilityData.map((item, idx) => (
                 <tr key={idx} className="border-b hover:bg-gray-50">
-                  <td className="py-4 px-4">
-                    <span className="text-sm font-medium text-gray-900">{item.client}</span>
+                  <td className="py-3 md:py-4 px-4">
+                    <span className="text-xs md:text-sm font-medium text-gray-900 whitespace-nowrap">{item.client}</span>
                   </td>
-                  <td className="py-4 px-4 text-right">
-                    <span className="text-sm text-gray-900">₹{(item.revenue / 100000).toFixed(1)}L</span>
+                  <td className="py-3 md:py-4 px-4 text-right">
+                    <span className="text-xs md:text-sm text-gray-900">₹{(item.revenue / 100000).toFixed(1)}L</span>
                   </td>
-                  <td className="py-4 px-4 text-right">
-                    <span className="text-sm text-red-600">₹{(item.cost / 100000).toFixed(1)}L</span>
+                  <td className="py-3 md:py-4 px-4 text-right">
+                    <span className="text-xs md:text-sm text-red-600">₹{(item.cost / 100000).toFixed(1)}L</span>
                   </td>
-                  <td className="py-4 px-4 text-right">
-                    <span className="text-sm font-semibold text-green-600">₹{(item.profit / 100000).toFixed(1)}L</span>
+                  <td className="py-3 md:py-4 px-4 text-right">
+                    <span className="text-xs md:text-sm font-semibold text-green-600">₹{(item.profit / 100000).toFixed(1)}L</span>
                   </td>
-                  <td className="py-4 px-4 text-right">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                  <td className="py-3 md:py-4 px-4 text-right">
+                    <span className={`px-2 md:px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap ${
                       item.margin >= 30 
                         ? "bg-green-100 text-green-700" 
                         : item.margin >= 20
@@ -214,6 +217,7 @@ export default function Finance() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </div>

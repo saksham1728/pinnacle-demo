@@ -17,34 +17,36 @@ export default function Settings() {
   ];
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Settings</h1>
-        <p className="text-gray-600 mt-1">Manage your account, team, and system configuration</p>
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Settings</h1>
+        <p className="text-gray-600 mt-1 text-sm md:text-base">Manage your account, team, and system configuration</p>
       </div>
 
-      <div className="flex gap-6">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
         {/* Sidebar */}
-        <div className="w-64 bg-white rounded-xl shadow-sm p-4 h-fit">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors mb-2 ${
-                activeTab === tab.id
-                  ? "bg-indigo-600 text-white"
-                  : "text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              <tab.icon className="w-5 h-5" />
-              <span className="font-medium">{tab.name}</span>
-            </button>
-          ))}
+        <div className="w-full lg:w-64 bg-white rounded-xl shadow-sm p-3 md:p-4 lg:h-fit">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center justify-center lg:justify-start gap-2 md:gap-3 px-3 md:px-4 py-2 md:py-3 rounded-lg transition-colors text-sm md:text-base ${
+                  activeTab === tab.id
+                    ? "bg-indigo-600 text-white"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                <tab.icon className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="font-medium hidden sm:inline">{tab.name}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Content */}
-        <div className="flex-1 bg-white rounded-xl shadow-sm p-8">
+        <div className="flex-1 bg-white rounded-xl shadow-sm p-4 md:p-8">
           {activeTab === "profile" && <ProfileSettings />}
           {activeTab === "security" && <SecuritySettings />}
           {activeTab === "notifications" && <NotificationSettings />}
@@ -61,54 +63,54 @@ export default function Settings() {
 function ProfileSettings() {
   return (
     <div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Profile Settings</h2>
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Profile Settings</h2>
+      <div className="space-y-4 md:space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+            <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">Full Name</label>
             <input
               type="text"
               defaultValue="Saksham Maheshwari"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 text-sm md:text-base text-gray-900"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+            <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">Email</label>
             <input
               type="email"
               defaultValue="saksham@pinnaclestudio.com"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 text-sm md:text-base text-gray-900"
             />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+            <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">Phone</label>
             <input
               type="tel"
               defaultValue="+91 98765 43210"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 text-sm md:text-base text-gray-900"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Role</label>
+            <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">Role</label>
             <input
               type="text"
               defaultValue="Founder / Admin"
               disabled
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50"
+              className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg bg-gray-50 text-sm md:text-base text-gray-900"
             />
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Bio</label>
+          <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">Bio</label>
           <textarea
             rows={4}
             defaultValue="Founder of Pinnacle Studio - a creative agency specializing in video production and social media management."
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 text-sm md:text-base text-gray-900"
           />
         </div>
-        <button className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">
+        <button className="w-full sm:w-auto px-4 md:px-6 py-2 md:py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors text-sm md:text-base">
           Save Changes
         </button>
       </div>
@@ -119,13 +121,13 @@ function ProfileSettings() {
 function SecuritySettings() {
   return (
     <div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Security Settings</h2>
-      <div className="space-y-6">
+      <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">Security Settings</h2>
+      <div className="space-y-4 md:space-y-6">
         <div>
-          <h3 className="font-semibold text-gray-900 mb-4">Change Password</h3>
+          <h3 className="font-semibold text-gray-900 mb-4 text-sm md:text-base">Change Password</h3>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Current Password</label>
+              <label className="block text-xs md:text-sm font-medium text-gray-700 mb-2">Current Password</label>
               <input
                 type="password"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"

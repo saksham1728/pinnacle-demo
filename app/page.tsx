@@ -14,24 +14,24 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 export default function Dashboard() {
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Good Morning, Saksham 👋</h1>
-        <p className="text-gray-600 mt-1">Here's what needs your attention today</p>
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Good Morning, Saksham 👋</h1>
+        <p className="text-gray-600 mt-1 text-sm md:text-base">Here's what needs your attention today</p>
       </div>
 
       {/* My Attention Section */}
-      <div className="mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <AlertCircle className="text-red-500" />
+      <div className="mb-6 md:mb-8">
+        <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <AlertCircle className="text-red-500 w-5 h-5" />
           My Attention (Top 5 Priorities)
         </h2>
         <div className="grid gap-3">
           {myAttentionItems.map((item) => (
             <div 
               key={item.id}
-              className={`p-4 rounded-lg border-l-4 bg-white shadow-sm hover:shadow-md transition-shadow cursor-pointer ${
+              className={`p-3 md:p-4 rounded-lg border-l-4 bg-white shadow-sm hover:shadow-md transition-shadow cursor-pointer ${
                 item.priority === "critical" 
                   ? "border-red-500" 
                   : item.priority === "urgent"
@@ -39,10 +39,10 @@ export default function Dashboard() {
                   : "border-yellow-500"
               }`}
             >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold text-gray-900">{item.title}</p>
-                  <p className="text-sm text-gray-500 mt-1">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex-1">
+                  <p className="font-semibold text-gray-900 text-sm md:text-base">{item.title}</p>
+                  <p className="text-xs md:text-sm text-gray-500 mt-1">
                     {item.type === "payment" && `Amount: ${item.amount}`}
                     {item.type === "lead" && `Client: ${item.client}`}
                     {item.type === "shoot" && `Location: ${item.location}`}
@@ -64,7 +64,7 @@ export default function Dashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
         {/* Sales Stats */}
         <StatCard
           title="New Leads"
@@ -100,10 +100,10 @@ export default function Dashboard() {
       </div>
 
       {/* Sales Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="lg:col-span-2 bg-white rounded-xl shadow-sm p-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Revenue & Profit Trend</h3>
-          <ResponsiveContainer width="100%" height={300}>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+        <div className="lg:col-span-2 bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <h3 className="text-base md:text-lg font-bold text-gray-900 mb-4">Revenue & Profit Trend</h3>
+          <ResponsiveContainer width="100%" height={250}>
             <LineChart data={revenueChartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis dataKey="month" stroke="#666" />
@@ -128,8 +128,8 @@ export default function Dashboard() {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Quick Stats</h3>
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
+          <h3 className="text-base md:text-lg font-bold text-gray-900 mb-4">Quick Stats</h3>
           <div className="space-y-4">
             <QuickStat label="Follow-ups Today" value={dashboardStats.sales.followUpsToday} color="blue" />
             <QuickStat label="Meetings Scheduled" value={dashboardStats.sales.meetings} color="purple" />
@@ -142,17 +142,17 @@ export default function Dashboard() {
       </div>
 
       {/* Operations & Finance */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-lg p-6 text-white">
-          <h3 className="text-xl font-bold mb-4">Pipeline Value</h3>
-          <p className="text-4xl font-bold mb-2">₹{(dashboardStats.sales.pipelineValue / 100000).toFixed(1)}L</p>
-          <p className="text-indigo-100">Expected revenue: ₹{(dashboardStats.sales.expectedRevenue / 100000).toFixed(1)}L</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-lg p-4 md:p-6 text-white">
+          <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-4">Pipeline Value</h3>
+          <p className="text-3xl md:text-4xl font-bold mb-2">₹{(dashboardStats.sales.pipelineValue / 100000).toFixed(1)}L</p>
+          <p className="text-sm md:text-base text-indigo-100">Expected revenue: ₹{(dashboardStats.sales.expectedRevenue / 100000).toFixed(1)}L</p>
         </div>
 
-        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg p-6 text-white">
-          <h3 className="text-xl font-bold mb-4">Expected Cash Flow</h3>
-          <p className="text-4xl font-bold mb-2">₹{(dashboardStats.finance.expectedCashflow / 100000).toFixed(1)}L</p>
-          <p className="text-green-100">Collections: ₹{(dashboardStats.finance.collections / 100000).toFixed(1)}L</p>
+        <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg p-4 md:p-6 text-white">
+          <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-4">Expected Cash Flow</h3>
+          <p className="text-3xl md:text-4xl font-bold mb-2">₹{(dashboardStats.finance.expectedCashflow / 100000).toFixed(1)}L</p>
+          <p className="text-sm md:text-base text-green-100">Collections: ₹{(dashboardStats.finance.collections / 100000).toFixed(1)}L</p>
         </div>
       </div>
     </div>
@@ -175,23 +175,23 @@ function StatCard({
   trendValue?: string;
 }) {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
-      <div className="flex items-center justify-between mb-4">
-        <div className="p-3 bg-gray-50 rounded-lg">
+    <div className="bg-white rounded-xl shadow-sm p-4 md:p-6 hover:shadow-md transition-shadow">
+      <div className="flex items-center justify-between mb-3 md:mb-4">
+        <div className="p-2 md:p-3 bg-gray-50 rounded-lg">
           {icon}
         </div>
         {trend && trend !== "neutral" && (
-          <div className={`flex items-center gap-1 text-sm font-medium ${
+          <div className={`flex items-center gap-1 text-xs md:text-sm font-medium ${
             trend === "up" ? "text-green-600" : "text-red-600"
           }`}>
-            {trend === "up" ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+            {trend === "up" ? <TrendingUp className="w-3 h-3 md:w-4 md:h-4" /> : <TrendingDown className="w-3 h-3 md:w-4 md:h-4" />}
             {trendValue}
           </div>
         )}
       </div>
-      <h3 className="text-gray-600 text-sm mb-1">{title}</h3>
-      <p className="text-3xl font-bold text-gray-900 mb-1">{value}</p>
-      <p className="text-sm text-gray-500">{subtitle}</p>
+      <h3 className="text-gray-600 text-xs md:text-sm mb-1">{title}</h3>
+      <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">{value}</p>
+      <p className="text-xs md:text-sm text-gray-500">{subtitle}</p>
     </div>
   );
 }

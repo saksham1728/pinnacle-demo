@@ -45,7 +45,7 @@ export default function Projects() {
     router.push(`/projects/${projectId}`);
   };
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       {/* Modals */}
       <AddProjectModal
         isOpen={isAddModalOpen}
@@ -67,22 +67,22 @@ export default function Projects() {
       )}
 
       {/* Header */}
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-6 md:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Projects</h1>
-          <p className="text-gray-600 mt-1">Manage all client projects and deliverables</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Projects</h1>
+          <p className="text-gray-600 mt-1 text-sm md:text-base">Manage all client projects and deliverables</p>
         </div>
         <button
           onClick={() => setIsAddModalOpen(true)}
-          className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl"
+          className="px-4 md:px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl text-sm md:text-base whitespace-nowrap"
         >
           + New Project
         </button>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-xl shadow-sm p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
+        <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-blue-100 rounded-lg">
               <CheckCircle2 className="w-5 h-5 text-blue-600" />
@@ -126,14 +126,14 @@ export default function Projects() {
       {/* Projects List */}
       <div className="grid gap-6">
         {projectsData.map((project) => (
-          <div key={project.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
+          <div key={project.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-4 md:p-6">
             {/* Header Row */}
-            <div className="flex items-start justify-between mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{project.name}</h3>
-                <p className="text-gray-600">{project.client}</p>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">{project.name}</h3>
+                <p className="text-gray-600 text-sm md:text-base">{project.client}</p>
               </div>
-              <span className={`px-4 py-2 rounded-lg font-medium text-sm ${
+              <span className={`px-3 md:px-4 py-2 rounded-lg font-medium text-xs md:text-sm whitespace-nowrap ${
                 statusColors[project.status] || "bg-gray-100 text-gray-700"
               }`}>
                 {project.status.replace("-", " ").toUpperCase()}
@@ -155,7 +155,7 @@ export default function Projects() {
             </div>
 
             {/* Project Info Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-gray-400" />
                 <div>
@@ -205,7 +205,7 @@ export default function Projects() {
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-4 pt-4 border-t flex gap-3">
+            <div className="mt-4 pt-4 border-t flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => handleViewDetails(project.id)}
                 className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors"

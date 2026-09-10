@@ -44,42 +44,42 @@ export default function ContentPipeline() {
     setContentData(updatedContent);
   };
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       {/* Header */}
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-6 md:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Content Production Pipeline</h1>
-          <p className="text-gray-600 mt-1">Track content from idea to publication</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Content Production Pipeline</h1>
+          <p className="text-gray-600 mt-1 text-sm md:text-base">Track content from idea to publication</p>
         </div>
-        <button className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors">
+        <button className="px-4 md:px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors text-sm md:text-base whitespace-nowrap">
           + New Content
         </button>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-        <div className="bg-white rounded-lg shadow-sm p-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 mb-4 md:mb-6">
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
           <div className="flex items-center gap-2 mb-1">
-            <Video className="w-4 h-4 text-indigo-500" />
-            <p className="text-gray-600 text-sm">Total Content</p>
+            <Video className="w-3 h-3 md:w-4 md:h-4 text-indigo-500" />
+            <p className="text-gray-600 text-xs md:text-sm">Total Content</p>
           </div>
-          <p className="text-2xl font-bold text-gray-900">48</p>
+          <p className="text-xl md:text-2xl font-bold text-gray-900">48</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm mb-1">In Production</p>
-          <p className="text-2xl font-bold text-blue-600">12</p>
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm mb-1">In Production</p>
+          <p className="text-xl md:text-2xl font-bold text-blue-600">12</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm mb-1">Client Review</p>
-          <p className="text-2xl font-bold text-orange-600">9</p>
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm mb-1">Client Review</p>
+          <p className="text-xl md:text-2xl font-bold text-orange-600">9</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm mb-1">Approved</p>
-          <p className="text-2xl font-bold text-green-600">15</p>
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm mb-1">Approved</p>
+          <p className="text-xl md:text-2xl font-bold text-green-600">15</p>
         </div>
-        <div className="bg-white rounded-lg shadow-sm p-4">
-          <p className="text-gray-600 text-sm mb-1">Published</p>
-          <p className="text-2xl font-bold text-gray-900">32</p>
+        <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
+          <p className="text-gray-600 text-xs md:text-sm mb-1">Published</p>
+          <p className="text-xl md:text-2xl font-bold text-gray-900">32</p>
         </div>
       </div>
 
@@ -90,7 +90,7 @@ export default function ContentPipeline() {
             const stageContent = contentData.filter(content => content.stage === stage.id);
 
             return (
-              <div key={stage.id} className="flex-shrink-0 w-80">
+              <div key={stage.id} className="flex-shrink-0 w-72 md:w-80">
                 {/* Column Header */}
                 <div className={`${stage.color} text-white rounded-t-lg p-4`}>
                   <div className="flex items-center justify-between">
